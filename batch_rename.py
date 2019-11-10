@@ -1,22 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2019-11-10 19:02
+# @Time    : 2019-11-10 18:47
 # @Author  : xlryan
 # @Site    : lesstk.com
-# @File    : remove_files.py
+# @File    : batch_rename.py
 # @IDE    : PyCharm
-
 
 import time
 import os
+import shutil
 
-path = "/Users/ryan/Downloads/"
+path = "/Users/xiaolian/Downloads/"
+newpath = "/Users/xiaolian/Downloads/mp4"
 
 def method():
     for root, dirs, files in os.walk(path):
         for file in files:
-            if os.path.splitext(file)[1] == ".jpg":
-                os.remove(os.path.join(root, file))
+            if os.path.splitext(file)[1] == ".mp4":
+                shutil.move(os.path.join(root, file), os.path.join(newpath, file))
+
     return 0
 
 
